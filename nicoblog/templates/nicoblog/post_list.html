@@ -1,0 +1,21 @@
+{% extends 'nicoblog/base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+    {% for post in posts %}
+    <div class="post">
+        <div class="date">
+            <h1>
+                <p> publicado: {{ post.published_date }}</p>
+            </h1>
+        </div>
+        <h2><a href="{% url 'post_detail' pk=post.pk %}"> {{ post.title }} </a></h2>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+    {% endfor %}
+
+
+
+{% endblock %}
